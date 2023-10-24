@@ -3,13 +3,13 @@ import requests
 # Import things that are needed generically
 from langchain.tools import BaseTool, Tool
 from typing import Optional
-from llms.azure_llms import create_llm
+# from llms.azure_llms import create_llm
 from langchain.prompts import PromptTemplate
 from langchain import PromptTemplate, LLMChain
-from tools.borealis_tools import extract_ips_urls_domains
+from tools.borealis_tools_cohere import extract_ips_urls_domains
 
-tool_llm = create_llm(temp=0.4)
-tool_llm_temp0 = create_llm(temp=0)
+# tool_llm = create_llm(temp=0.4)
+# tool_llm_temp0 = create_llm(temp=0)
 
 from langchain.callbacks.manager import (
     AsyncCallbackManagerForToolRun,

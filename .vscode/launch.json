@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Current file",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${workspaceRoot}",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "purpose": ["debug-test"],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: pytest",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "cwd": "${workspaceRoot}/metadata-ingestion",
+            "args": [
+                "-s", "${workspaceRoot}/metadata-ingestion/tests/integration/iceberg/test_iceberg.py"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+        {
+            "name": "datahub ingest",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/erladou/git/cccs/datahub/metadata-ingestion/venv/bin/datahub",
+            "args": ["ingest", "run", "--dry-run", "-c", "/home/erladou/git/cccs/hogwarts-datahub-sources/recipes/adhoc/hogwarts_iceberg_recipe_u.yaml"],
+            // "args": ["ingest", "run", "-c", "/home/erladou/git/cccs/datahub/metadata-ingestion/dbt/recipe.yaml"],
+            "cwd": "${workspaceRoot}/metadata-ingestion",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+        },
+    ]
+}

@@ -1,8 +1,11 @@
+from typing import Any
 import os
 import openai
 from dotenv import load_dotenv
 from langchain.chat_models import AzureChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.agents import AgentExecutor
+from langchain.callbacks import get_openai_callback
 
 #load environment variables
 load_dotenv()
@@ -33,3 +36,13 @@ def create_llm(temp=0.4, max_tokens=2000):
 
 def create_azure_embedder():
     return OpenAIEmbeddings(deployment="ADA", model=OPENAI_EMBEDDING_MODEL_NAME, chunk_size=1)
+
+def run_in_agent(agent: AgentExecutor, query: Any) -> Any:
+    with get_openai_callback() as cb:
+        result = agent.run(query)
+        print("OpenAI call breakdown:")
+        print("----------------------")
+        print(cb)
+        print("----------------------")
+
+    return result

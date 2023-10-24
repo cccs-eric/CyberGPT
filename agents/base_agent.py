@@ -3,7 +3,8 @@ from langchain.agents import AgentType
 from langchain.memory import ConversationBufferMemory
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
-from llms.azure_llms import create_llm
+# from llms.azure_llms import create_llm
+from llms.cohere_llms import create_llm
 from tools.get_tools import base_tools
 
 llm = create_llm(max_tokens=2000, temp=0.5)

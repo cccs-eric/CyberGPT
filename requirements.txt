@@ -1,3 +1,4 @@
+wheel
 langchain
 PyPDF2
 python-dotenv
@@ -11,7 +12,9 @@ cohere
 tiktoken
 boto3
 shodan
-sklearn
+# sklearn replaced by scikit-learn
+#sklearn
+scikit-learn
 matplotlib
 umap-learn
 #kedra stuff
@@ -23,3 +26,14 @@ requests
 # uncomment to use instructor embeddings
 # InstructorEmbedding
 # sentence-transformers
+
+# GraphQL tool deps
+httpx
+gql
+requests_toolbelt
+
+# Howler tool deps
+howler_client
+
+trino
+trino[sqlalchemy]
